@@ -44,6 +44,9 @@ int main(){
 	return 0;
 }
 
+/* Constructor.                                                                                                              
+* Should initialize riddles, ranswers                                                                                 
+*/
 Sphynx::Sphynx(){}
 
 void Sphynx::introduction()
@@ -58,12 +61,19 @@ void Sphynx::introduction()
 	sleep(TIME);
 }
 
+/*                                                                                                                           
+ * Shuffle an array the same size as NUM_RIDDLES so questions are not always output in the same order and without repeats
+ * Only the first three indeces will be used to output three questions maximum                                                        
+ */
 void Sphynx::shuffle_questions()
 {
    unsigned num = std::chrono::system_clock::now().time_since_epoch().count();
    shuffle (shuf.begin(), shuf.end(), std::default_random_engine(num));
 }
 
+/*                                                                                                                           
+ * Get a question from riddles to ask the user                                                           
+ */
 int Sphynx::get_question(int index)
 {
 	std::string riddle;
@@ -72,6 +82,9 @@ int Sphynx::get_question(int index)
 	return index;
 }
 
+/*                                                                                                                           
+ * Get answer from user and convert to all lowercase                                                            
+ */
 std::string Sphynx::get_response() 
 {
 	std::string response;
@@ -80,6 +93,9 @@ std::string Sphynx::get_response()
 	return response;
 }
 
+/*                                                                                                                           
+ * Checks if user input matches the string at the index of the answers                                                           
+ */
 bool Sphynx::answer(int index, std::string input)
 {
 	bool matched = false;
@@ -94,6 +110,9 @@ bool Sphynx::answer(int index, std::string input)
 	
 }
 
+/*                                                                                                                           
+ * Runs the game in a loop that continues until the game is over.                                                            
+ */
 void Sphynx::play()
 {
 	srand(time(NULL));
@@ -130,5 +149,3 @@ void Sphynx::play()
 	}	
 
 }	
-
-
