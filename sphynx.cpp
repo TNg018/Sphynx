@@ -12,8 +12,8 @@
 
 #include <iostream>
 #include <cstring>		// std::string	
-#include <unistd.h> 	// sleep(int) for Linux or Windows.h for Windows 
-#include <algorithm>    // std::shuffle
+#include <unistd.h> 		// sleep(int) for Linux or Windows.h for Windows 
+#include <algorithm>   		// std::shuffle
 #include <array>		// std::array
 #include <random>		// std::default_random_engine
 #include <chrono>		// std::chrono::system_clocl
@@ -25,7 +25,7 @@ double TIME  = 1;
 class Sphynx
 {
 public: 
-	sphynx();
+	Sphynx();
 	void play();
 	std::string riddles[10] = { "What question can you never answer yes to?", "What is full of holes but still holds water?", "What can't talk but can reply when spoken to?", "What goes up but never comes down?", "What can you keep after giving to someone?", "I have branches, but no fruit, trunk or leaves. What am I?", "The more of this there is, the less you see. What is it?", "What gets bigger when more is taken away?", "Where does today come before yesterday?", "What goes up and down but doesn't move?"}; 
 	std::string ranswers[10] = {"are you asleep", "a sponge", "an echo", "your age", "your word", "a bank", "darkness", "a hole", "the dictionary", "a staircase"}; 
@@ -141,7 +141,9 @@ void Sphynx::play()
 	}
 	
 	if (guessed == NUM_ATTEMPTS) {
-		std::cout << "You correctly answered all of the questions.\nYou may pass." << std::endl;
+		std::cout << "You correctly answered all of the questions." << std::endl;
+		sleep(TIME);
+		std::cout << "You may pass." << std::endl;
 	} else {
 		std::cout << "You answered incorrectly." << std::endl;
 		sleep(TIME);
