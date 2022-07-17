@@ -141,13 +141,13 @@ void Sphynx::play()
 	}
 	
 	if (guessed == NUM_ATTEMPTS) {
-		std::cout << "You correctly answered all of the questions." << std::endl;
+		std::cout << "\nYou correctly answered all of the questions." << std::endl;
 		sleep(TIME);
 		std::cout << "You may pass." << std::endl;
 	} else {
-		std::cout << "You answered incorrectly." << std::endl;
+		std::cout << "\nYou answered incorrectly." << std::endl;
 		sleep(TIME);
-		std::cout << "\nThe Sphynx gobbles you up." << std::endl;
+		std::cout << "The Sphynx gobbles you up." << std::endl;
 	}	
 
 }	
